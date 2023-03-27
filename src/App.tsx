@@ -1,29 +1,26 @@
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
+import A from "./components/A";
+import Contexto from "./context/Contexto";
+
 
 function App() {
-  const [nome,SetNome] = useState('Vitoria');
-  const [idade,SetIdade] = useState(23);
+  const [nome, SetNome] = useState('');
+  const [idade, SetIdade] = useState('');
 
   return (
-    <div>
+    <Contexto.Provider value={{nome,idade}}>
+      <div>
+        <h1>Digite seu nome aqui: </h1>
+        <label htmlFor="">Nome: </label><br />
+        <input value={nome} onChange={(e) => SetNome(e.target.value)} type="text" />
+      </div>
+      <div>
+        <label htmlFor="">Idade: </label><br />
+        <input type="text" value={idade} onChange={(e) => SetIdade(e.target.value)} />
+      </div>
       <A />
-      <B />
-      <C />
-      <div>Nome:{nome} Idade:{idade}</div>
-    </div>
+    </Contexto.Provider>
   );
 }
 
 export default App;
-
-function A() {
-  return <> Componente A</>;
-}
-
-function B() {
-  return <> Componente B</>;
-}
-
-function C() {
-  return <> Componente C</>;
-}
