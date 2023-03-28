@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import Contexto from "../context/Contexto";
+import UseExample from "../hoocks/useExemplo";
 
 export default function C() {
-    const {nome,idade} = useContext(Contexto);
-    return <><br /> Nome:{nome}<br/><br /> Idade:{idade}</>
+    const { nome, idade} = UseExample();
+    return <><br /> Nome: {nome}<br/><br /> Idade: {idade}</>
 }
